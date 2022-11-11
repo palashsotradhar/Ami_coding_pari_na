@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registration</title>
+<link rel="stylesheet" href={% static 'registration/registration.css' %}>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<body>
+<form  method="post">{% csrf_token %}
+  <h2 class="text-center">Registration Form</h2>
+  <h2>User Basic Information</h2>
+  {%for fr in fr%}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="username">{{fr.label_tag}} *</label>
+        {{fr}}
+    </div>
+  </div>
+  {%endfor%}
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+</body>
+</html>
+</html>
+{%endblock%}
